@@ -22,10 +22,10 @@ func databaseOpen(server, username, password string) {
 	dbOpen, err := sql.Open("mssql", connectionString)
 	if err != nil {
 		log.Fatal("Connection to the SQL Database was unsuccessful")
-	} else {
-		ctx := context.Background()
-		dbOpen.PingContext(ctx)
 	}
+
+	ctx := context.Background()
+	dbOpen.PingContext(ctx)
 
 	// Close the database once it's done being used. Although databases can technically
 	// stay open, it'll just cause the use of resources for no reason.
