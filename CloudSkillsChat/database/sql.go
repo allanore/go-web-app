@@ -26,4 +26,8 @@ func databaseOpen(server, username, password string) {
 		ctx := context.Background()
 		dbOpen.PingContext(ctx)
 	}
+
+	// Close the database once it's done being used. Although databases can technically
+	// stay open, it'll just cause the use of resources for no reason.
+	defer dbOpen.Close()
 }
