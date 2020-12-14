@@ -9,12 +9,16 @@ import (
 
 var tpl *template.Template
 
+var server string = "tcp:cloudskillschat.database.windows.net"
+var username string = "mike"
+var password string = "W3lcomeWorld12!@"
+
 func init() {
 	tpl = template.Must(template.ParseFiles("index.html"))
 }
 
 func main() {
-	databaseOpen("tcp:cloudskillschat.database.windows.net", "mike", "W3lcomeWorld12!@")
+	databaseOpen(server, username, password)
 
 	http.HandleFunc("/", index)
 	http.Handle("/css/", http.StripPrefix("/css", http.FileServer(http.Dir("./css"))))
