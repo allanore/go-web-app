@@ -8,7 +8,7 @@ import (
 
 func databaseOpen(server, username, password string) {
 	// Connection string for database
-	connectionString := "Server=tcp:" + server + ",1433;Initial Catalog=cloudskillschat;Persist Security Info=False;User ID=" + username + ";Password=" + password + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+	connectionString := "Server=" + server + ",1433;Initial Catalog=cloudskillschat;Persist Security Info=False;User ID=" + username + ";Password=" + password + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
 
 	// Open database connection
 	dbOpen, err := sql.Open("mssql", connectionString)
