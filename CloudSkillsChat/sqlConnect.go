@@ -6,14 +6,6 @@ import (
 	"log"
 )
 
-func main() {
-	databaseOpen(
-		"tcp:cloudskillschat.database.windows.net",
-		"mike",
-		"W3lcomeWorld12!@",
-	)
-}
-
 func databaseOpen(server, username, password string) {
 	// Connection string for database
 	connectionString := "server=server;user id=" + username + ";password=" + password + ";port=1433;database=cloudskillschat;"
