@@ -14,10 +14,7 @@ func init() {
 }
 
 func main() {
-	databaseOpen(
-		"tcp:cloudskillschat.database.windows.net",
-		"mike",
-		"W3lcomeWorld12!@")
+	databaseOpen("tcp:cloudskillschat.database.windows.net", "mike", "W3lcomeWorld12!@")
 
 	http.HandleFunc("/", index)
 	http.Handle("/css/", http.StripPrefix("/css", http.FileServer(http.Dir("./css"))))
