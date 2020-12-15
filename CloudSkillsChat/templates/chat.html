@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>CloudSkills Chat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Talk about cloud">
+    <link href="https://fonts.googleapis.com/css?family=Cantarell:400,700|Kotta+One" rel="stylesheet">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/chat.css">
+    <link rel="stylesheet" href="../css/mq_800-plus.css" media="(min-width: 800px)">
+</head>
+<body>
+
+<!-- BEGIN SVG DEFINITIONS -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="pencil" viewBox="0 0 100 100">
+        <path d="M71,48.1L34.6,84.5H16.4V66.3l36.4-36.4L71,48.1z M36.3,74.9L26,64.6l-4,4v4.7h5.6v5.6h4.7L36.3,74.9z M54.2,37.3
+		c-0.3,0-0.5,0.1-0.7,0.3L29.7,61.3c-0.2,0.2-0.3,0.5-0.3,0.7c0,0.6,0.4,1,1,1c0.3,0,0.5-0.1,0.7-0.3L54.8,39
+		c0.2-0.2,0.3-0.5,0.3-0.7C55.2,37.7,54.8,37.3,54.2,37.3z M81,38l-7.3,7.3L55.6,27.1l7.3-7.2c1-1,2.4-1.7,3.9-1.7
+		c1.5,0,2.9,0.6,4,1.7L81,30.1c1,1,1.6,2.5,1.6,4C82.7,35.6,82.1,37,81,38z"/>
+    </symbol>
+</svg>
+<!-- END SVG DEFINITIONS -->
+
+<header>
+    <div>
+        <a href="/">
+            <svg class="idx-hdr-svg"><use xlink:href="#pencil"></use></svg>
+            <h1>CloudSkills Chat</h1>
+        </a>
+    </div>
+    <nav>
+        <a href="/">Home</a>
+        <a href="https://cloudskills.io/" target="_blank">About</a>
+        <a href="/chat">Chat</a>
+    </nav>
+</header>
+
+<section id="chat-atf">
+    <section id="display">This is a test             
+    </section>
+    <aside id="chat">
+        <form action="/message" method="post">
+            <div>
+                <label for="firstname">First Name:</label>
+                <input type="text" id="firstname" name="name" required>
+            </div>
+            <div>
+                <label for="comment">Comment:</label>
+                <input type="textbox" id="message" name="message" required>
+            </div>
+            <div id="frmsubmit">
+                <input type="submit" name="submit" id="submit" value="Send">
+            </div>
+        </form>
+    </aside>
+</section>
+<script>
+     function updateChat() {
+        var req = new XMLHttpRequest();
+        req.overrideMimeType("application/json");
+        req.open('GET', '/update', true);
+        req.onload  = function() {
+        var jsonResponse = JSON.parse(req.responseText);
+        // do something with jsonResponse
+
+        var out = "";
+        var i;
+        for(i = 0; i < jsonResponse.length; i++) {
+            out += '<p>' + jsonResponse[i].Name + ':  ' +
+                jsonResponse[i].Message + '</p><br>';
+        }
+        document.getElementById("display").innerHTML = out;
+        };
+        req.send(null);
+     }
+        updateChat()
+    window.setInterval(function() {
+        updateChat()
+    }, 1000);
+
+        
+</script>
+</body>
+</html>

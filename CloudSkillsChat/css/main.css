@@ -33,7 +33,7 @@ header nav, header nav a, header svg {
 
 header a {
     height: 100%;
-    width: 100%;
+    /*width: 100%;*/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,7 +51,7 @@ header div a h1 {
 
 header nav a {
     font-size: 1rem;
-    width: 20px;
+    width: 1px;
     height: 100%;
 }
 
@@ -63,7 +63,7 @@ header nav a {
 
 #idx-atf {
     /* layout */
-    height: 100vh;
+    height: 30rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -178,6 +178,7 @@ header nav a {
     height: 20rem;
     border: solid black;
     margin-top: .8rem;
+    overflow: scroll;
 }
 
 form {

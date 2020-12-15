@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Talk about cloud">
     <link href="https://fonts.googleapis.com/css?family=Cantarell:400,700|Kotta+One" rel="stylesheet">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/mq_800-plus.css" media="(min-width: 800px)">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/mq_800-plus.css" media="(min-width: 800px)">
 </head>
 <body>
 
@@ -25,47 +25,25 @@
 
 <header>
     <div>
-        <a href="#">
+        <a href="/">
             <svg class="idx-hdr-svg"><use xlink:href="#pencil"></use></svg>
             <h1>CloudSkills Chat</h1>
         </a>
     </div>
     <nav>
-        <a href="#">Home</a>
-        <a href="#">Sign&nbsp;Up</a>
-        <a href="#">Log&nbsp;In</a>
+        <a href="/">Home</a>
+        <a href="https://cloudskills.io/" target="_blank">About</a>
+        <a href="/chat">Chat</a>
     </nav>
 </header>
 <section id="idx-atf">
     <div class="idx-center-spacebetween">
-        <h1>CloudSkills Chat</h1>
+        <h1>CLOUDSKILLS ANONYMOUS CHAT</h1>
         <div class="idx-center-center">
-            <section id="display">
-                    {{if .Submissions}}
-                                <p><strong>{{.Submissions.name}}:{{.Submissions.comment}}</strong></p>
-                        
-                    {{end}}
-            </section>
-            <div></div>
-            <form action="/" method="post">
-
-                <div>
-                    <label for="firstname">First Name:</label>
-                    <input type="text" id="firstname" name="name" required>
-                </div>
-            
-                <div>
-                    <label for="comment">Comment:</label>
-                    <textarea id="comment" name="comment" rows="3"></textarea>
-                    
-                </div>
-            
-                <div id="frmsubmit">
-                    <input type="submit" name="submit" id="submitobey" value="Send">
-                </div>
-            
-            </form>
+            <h2>LEARN&nbsp;TOGETHER</h2>
+            <h3>TAUGHT&nbsp;BY&nbsp;INDUSTRY&nbsp;PROS</h3>
         </div>
+        <button><a href="/chat">Chat Now</a></button>
     </div>
 </section>
 </body>
