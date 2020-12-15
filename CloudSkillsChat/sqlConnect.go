@@ -6,7 +6,7 @@ import (
 	"log"
 )
 
-func databaseOpen(server, username, password string) {
+func databaseOpen(server, username, password string) string {
 	// Connection string for database
 	connectionString := "Server=" + server + ",1433;Initial Catalog=cloudskillschat;Persist Security Info=False;User ID=" + username + ";Password=" + password + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
 
@@ -22,4 +22,6 @@ func databaseOpen(server, username, password string) {
 	// Close the database once it's done being used. Although databases can technically
 	// stay open, it'll just cause the use of resources for no reason.
 	defer dbOpen.Close()
+
+	return ""
 }

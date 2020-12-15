@@ -18,7 +18,8 @@ func init() {
 }
 
 func main() {
-	databaseOpen(server, username, password)
+	db := databaseOpen(server, username, password)
+	fmt.Println(db)
 
 	http.HandleFunc("/", index)
 	http.Handle("/css/", http.StripPrefix("/css", http.FileServer(http.Dir("./css"))))
