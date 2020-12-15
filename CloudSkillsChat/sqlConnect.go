@@ -3,15 +3,24 @@ package main
 import (
 	"context"
 	"database/sql"
+	"fmt"
 	"log"
 )
 
-func databaseOpen(server, username, password string) string {
+var db *sql.DB
+var server = "cloudskillschat.database.windows.net"
+var port = 1433
+var user = "mike"
+var password = "W3lcomeWorld12!@"
+var database = "cloudskillschat"
+
+func databaseOpen() string {
 	// Connection string for database
-	connectionString := "Server=" + server + ",1433;Initial Catalog=cloudskillschat;Persist Security Info=False;User ID=" + username + ";Password=" + password + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+	connectionString := fmt.Sprintf("server=%s;user id=%s;password=%s;port=%d;database=%s;",
+		server, user, password, port, database)
 
 	// Open database connection
-	dbOpen, err := sql.Open("mssql", connectionString)
+	dbOpen, err := sql.Open("sqlserver", connectionString)
 	if err != nil {
 		log.Fatal("Connection to the SQL Database was unsuccessful")
 	}

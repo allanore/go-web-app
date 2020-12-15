@@ -9,17 +9,11 @@ import (
 
 var tpl *template.Template
 
-var server string = "tcp:cloudskillschat.database.windows.net"
-var username string = "mike"
-var password string = "W3lcomeWorld12!@"
-
 func init() {
 	tpl = template.Must(template.ParseFiles("index.html"))
 }
 
 func main() {
-	db := databaseOpen(server, username, password)
-	fmt.Println(db)
 
 	http.HandleFunc("/", index)
 	http.Handle("/css/", http.StripPrefix("/css", http.FileServer(http.Dir("./css"))))
@@ -27,6 +21,8 @@ func main() {
 }
 
 func index(res http.ResponseWriter, req *http.Request) {
+
+	databaseOpen()
 
 	err := req.ParseForm()
 	if err != nil {
