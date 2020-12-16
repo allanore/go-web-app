@@ -38,8 +38,8 @@ END_OF_SCRIPT
 
 ls /app
 sudo chmod +x /app/CloudSkillsChat
-sudo chmod -R 777 /app
-
+sudo chmod -R a+rwx /app
+sudo chown -R root: /app
 
 sudo tee -a /lib/systemd/system/CloudSkillsChat.service << END
 [Unit]
