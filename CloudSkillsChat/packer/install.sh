@@ -21,6 +21,11 @@ CREATE USER msgsvc WITH PASSWORD 'password';
 GRANT ALL PRIVILEGES ON DATABASE messages to msgsvc;
 ALTER USER msgsvc WITH SUPERUSER;
 
+END_OF_SCRIPT
+
+export PGPASSWORD=password
+
+psql -h localhost -U msgsvc -d messages -w << END_OF_SCRIPT
 CREATE TABLE queue (
    ID SERIAL PRIMARY KEY     NOT NULL,
    NAME           TEXT    NOT NULL,
@@ -32,9 +37,8 @@ INSERT INTO queue (name, message) VALUES ('CloudSkills', 'Welcome to the infrast
 INSERT INTO queue (name, message) VALUES ('CloudSkills', 'Enter something in the chat.');
 
 
-
-
 END_OF_SCRIPT
+
 
 ls /app
 sudo chmod +x /app/CloudSkillsChat
