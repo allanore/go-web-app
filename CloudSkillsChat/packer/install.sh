@@ -38,13 +38,18 @@ END_OF_SCRIPT
 
 ls /app
 sudo chmod +x /app/CloudSkillsChat
+sudo chmod -R 777 /app
+
 
 sudo tee -a /lib/systemd/system/CloudSkillsChat.service << END
 [Unit]
 Description=Go Server
 
 [Service]
-ExecStart=/app/CloudSkillsChat
+ExecStart=/bin/bash -c '/app/CloudSkillsChat'
+WorkingDirectory=/app
+Environment=POSTGRES_PASSWORD=SomePassWord
+Environment=PORT=3001
 User=root
 Group=root
 Restart=always
@@ -55,5 +60,6 @@ END
 
 sudo systemctl enable CloudSkillsChat.service
 sudo systemctl start CloudSkillsChat.service
+sudo systemctl status CloudSkillsChat.service
 
 
